@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>HR Calculator</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="inputs">
+		<div class="staffcount">
+			<label>Staff Count</label>
+			<select name="number-dropdown" id="number-dropdown">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+			</select>
+		</div>
+		
+		<div class="annualsalary">
+			<label>Annual Salary:</label>
+			<input type="text" name="" id="annualsalary" value="50 000" />
+		</div>
+		
+		<div class="timeframe">
+			<p id="timeframe"></p>
+		</div>
+	</div>
+	
+	<div class="calculations">
+		<div class="traditionalcost">
+			<label>The Traditional
+			Cost: </label>
+			<p id="traditionalcost"></p>
+		</div>
+		
+		<div class="ressonatecost">
+			<label>The RESSONATE Cost:</label>
+		  <p id="ressonatecost"></p>
+		</div>
+		
+		<div class="savings">
+			<label>The Capital Re-allocation(Savings)</label>
+			<p id="savings"></p>
+		</div>
+	</div>
+	
+
+	<script type="text/javascript" src="game.js"></script>
+</body>
+</html>
