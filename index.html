@@ -10,7 +10,7 @@
 	<div class="inputs">
 		<div class="staffcount">
 			<label>Staff Count</label>
-			<select name="number-dropdown" id="number-dropdown">
+			<select name="number-dropdown" id="numberdropdown">
 				<option value="1">1</option>
 				<option value="2">2</option>
 				<option value="3">3</option>
@@ -26,33 +26,34 @@
 		
 		<div class="annualsalary">
 			<label>Annual Salary:</label>
-			<input type="text" name="" id="annualsalary" value="50 000" />
+			<input type="text" name="" id="annualsalary" value="50000" />
 		</div>
 		
 		<div class="timeframe">
-			<p id="timeframe"></p>
+            <label>TimeFrame: 4 year</label>
 		</div>
 	</div>
 	
 	<div class="calculations">
 		<div class="traditionalcost">
-			<label>The Traditional
-			Cost: </label>
+			<label>The Traditional Cost: </label>
 			<p id="traditionalcost"></p>
 		</div>
 		
 		<div class="ressonatecost">
-			<label>The RESSONATE Cost:</label>
-		  <p id="ressonatecost"></p>
+	        <label>The RESSONATE Cost: </label>
+            <p id="ressonatecost"></p>
 		</div>
 		
 		<div class="savings">
 			<label>The Capital Re-allocation(Savings)</label>
 			<p id="savings"></p>
 		</div>
+
+        <p class="quicknote">Indicative pricing based on 30% reallocation of current HR spend.</p>
 	</div>
 	
 
-	<script type="text/javascript" src="game.js"></script>
+	<script type="text/javascript" src="script.js"></script>
 </body>
 </html>
