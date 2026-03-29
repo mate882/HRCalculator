@@ -85,12 +85,19 @@ app.post('/send-audit', (req, res) => {
 
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      console.error("DETAILED_SMTP_ERROR:", error);
-      return res.status(500).json({ success: false, message: error.message });
+      console.log(error);
+      return res.status(500).send("Error sending email");
     }
-    console.log("Email sent successfully!");
-    res.status(200).json({ success: true });
+    res.status(200).send("Email sent: " + info.response);
   });
+
+  try {
+    transporter.sendMail(mailOptions);
+    res.status(200).send("Email sent successfully");
+  } catch (error) {
+    console.error("SMTP Error:", error);
+    res.status(500).json({ error: "Email failed", details: error.message });
+  }
 });
 
 const PORT = process.env.PORT || 3000;
