@@ -65,6 +65,7 @@ auditForm.addEventListener('submit', function (event) {
 });
 
 function SendtoAdmin() {
+  alert("Button Clicked!");
   const namevalue = nameinput.value.trim();
   const emailvalue = emailinput.value.trim();
 
