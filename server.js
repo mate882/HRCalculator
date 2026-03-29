@@ -29,7 +29,11 @@ const transporter = nodemailer.createTransport({
   },
   connectionTimeout: 10000, // 10 seconds
   greetingTimeout: 10000,
-  socketTimeout: 10000
+  socketTimeout: 10000,
+  tls: {
+    rejectUnauthorized: false, 
+    minVersion: 'TLSv1.2'
+  }
 });
 
 app.post('/send-audit', (req, res) => {
@@ -81,19 +85,12 @@ app.post('/send-audit', (req, res) => {
 
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      console.log(error);
-      return res.status(500).send("Error sending email");
+      console.error("DETAILED_SMTP_ERROR:", error);
+      return res.status(500).json({ success: false, message: error.message });
     }
-    res.status(200).send("Email sent: " + info.response);
+    console.log("Email sent successfully!");
+    res.status(200).json({ success: true });
   });
-
-  try {
-    transporter.sendMail(mailOptions);
-    res.status(200).send("Email sent successfully");
-  } catch (error) {
-    console.error("SMTP Error:", error);
-    res.status(500).json({ error: "Email failed", details: error.message });
-  }
 });
 
 const PORT = process.env.PORT || 3000;
