@@ -94,15 +94,12 @@ function SendtoAdmin() {
       status: "Unlocked"
     };
 
-    fetch('https://formspree.io/f/mdawdqrp', {
+    fetch('http://localhost:3000/send-audit', { 
       method: 'POST',
       body: JSON.stringify(leadData),
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      }
+      headers: { 'Content-Type': 'application/json' }
     })
-    .then(function (response) {
+    .then(response => {
       if (response.ok) {
         document.getElementById('audit-form').style.display = 'none';
         const revealSection = document.getElementById('reveal-section');
