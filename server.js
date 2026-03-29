@@ -1,11 +1,16 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
 const cors = require('cors');
-const app = express();
 const path = require('path');
+const app = express();
 
-app.use(express.static(path.join(__dirname)));
+// 1. Middleware (Must come BEFORE routes)
+app.use(cors());
+app.use(express.json());
+// This line tells Express to serve your index.html, style.css, and script.js
+app.use(express.static(__dirname)); 
 
+// 2. Routes
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
@@ -80,4 +85,5 @@ app.post('/send-audit', (req, res) => {
   });
 });
 
-app.listen(3000, () => console.log('Server running on port 3000'));
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
