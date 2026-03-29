@@ -21,8 +21,8 @@ app.use(express.json());
 // Set up the Brevo (Sendinblue) Transporter
 const transporter = nodemailer.createTransport({
   host: "smtp-relay.brevo.com",
-  port: 587,
-  secure: false, // TLS
+  port: 2525,
+  secure: false, 
   auth: {
     user: process.env.BREVO_USER,
     pass: process.env.BREVO_PASS
@@ -85,10 +85,12 @@ app.post('/send-audit', (req, res) => {
 
   transporter.sendMail(mailOptions, (error, info) => {
     if (error) {
-      console.log(error);
-      return res.status(500).send("Error sending email");
+      console.error("DETAILED_SMTP_ERROR:", error);
+      return res.status(500).json({ success: false, error: "Mail failed" });
     }
-    res.status(200).send("Email sent: " + info.response);
+    
+    console.log("✅ Email sent!");
+    res.status(200).json({ success: true });
   });
 
   try {
