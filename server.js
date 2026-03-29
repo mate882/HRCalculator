@@ -34,7 +34,7 @@ app.post('/send-audit', (req, res) => {
 
   const mailOptions = {
     from: 'mateasanidze808@gmail.com',
-    to: '1surveyfeedback@gmail.com', 
+    to: 'mateasanidze808@gmail.com', 
     subject: `Audit Result: ${data.name}`,
     html: `
       <div style="font-family: sans-serif; line-height: 1.6; color: #333; max-width: 600px; border: 1px solid #eee; padding: 20px; border-radius: 10px;">
