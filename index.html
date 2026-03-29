@@ -7,138 +7,111 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div id="ressonate-app-container">
+    <button id="open-calc-btn">See the HR Calculator</button>
 
-  <button id="open-calc-btn">See the HR Calculator</button>
+    <div class="calculator" id="calculator">
+      <button class="close-btn" id="close-calc-btn">&#x2715;</button>
 
-  <div class="calculator" id="calculator">
-    <button class="close-btn" id="close-calc-btn">&#x2715;</button>
+      <!-- <div class="brand-logo">
+        <img src="logo.png" alt="Ressonate Logo" style="max-width: 150px; display: block; margin: 0 auto 20px;">
+      </div> -->
 
-    <div class="calc-inner">
-      <div class="calc-header">
-        <h1>HR Cost <span>Calculator</span></h1>
-        <p>4-Year Financial Impact Analysis</p>
-      </div>
-
-      <div class="inputs">
-        <div class="staffcount">
-          <label>Staff Count</label>
-          <select name="number-dropdown" id="numberdropdown">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-          </select>
+      <div class="calc-inner">
+        <div class="calc-header">
+          <h1>HR Cost <span>Calculator</span></h1>
+          <p>4-Year Financial Impact Analysis</p>
         </div>
 
-        <div class="annualsalary">
-          <label>Annual Salary</label>
-          <input type="text" id="annualsalary" value="50000" />
-        </div>
-
-        <div class="timeframe">
-          <label>Timeframe</label>
-          <div class="timeframe-value">4 <span>years</span></div>
-        </div>
-      </div>
-
-      <div class="calculations">
-        <div class="traditionalcost">
-          <label>Traditional Cost</label>
-          <p id="traditionalcost">$0</p>
-        </div>
-
-        <div class="ressonatecost">
-          <label>RESSONATE Cost</label>
-          <p id="ressonatecost">$0</p>
-        </div>
-
-        <div class="savings">
-          <label>Capital Re-allocation</label>
-          <p id="savings">$0</p>
-        </div>
-      </div>
-
-      <p class="quicknote">Indicative pricing based on 30% reallocation of current HR spend.</p>
-
-      <p class="message">Your potential 4-year savings is significant.<br>To see exactly how RESSONATE eliminates costs across 14 key HR variables<br>and to view the Balance Sheet Impact,<br>unlock your free report below.</p>
-
-      <form id="audit-form">
-        <div class="details">
-          <div>
-            <label for="name">Name</label>
-            <input type="text" id="name" placeholder="Your full name" required>
+        <div class="inputs">
+          <div class="staffcount">
+            <label>Staff Count</label>
+            <select name="number-dropdown" id="numberdropdown">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
           </div>
-          <div>
-            <label for="email">Business Email</label>
-            <input type="email" id="email" placeholder="you@company.com" required>
+
+          <div class="annualsalary">
+            <label>Annual Salary</label>
+            <input type="text" id="annualsalary" value="50000" />
+          </div>
+
+          <div class="timeframe">
+            <label>Timeframe</label>
+            <div class="timeframe-value">4 <span>years</span></div>
           </div>
         </div>
-        <button type="submit">Unlock Full 4-Year Report</button>
-      </form>
 
-      <div id="reveal-section" class="variable-grid" style="display: none;">
-        <div class="variable-card">
-          <h3>1. AI-Powered Support</h3>
-          <p>24/7 automated employee queries and AI-driven HR assistance.</p>
+        <div class="calculations">
+          <div class="traditionalcost">
+            <label>Traditional Cost</label>
+            <p id="traditionalcost">$0</p>
+          </div>
+
+          <div class="bespokesolutionbase">
+            <label>Bespoke Solution Base</label>
+            <p id="bespokesolutionbase">$0</p>
+          </div>
+
+          <div class="savings">
+            <label>Potential 4-Year Value Creation</label>
+            <p id="savings">$0 - $0</p>
+          </div>
         </div>
-        <div class="variable-card">
-          <h3>2. Legal &amp; Compliance</h3>
-          <p>Full regulatory audit and ongoing contract management.</p>
-        </div>
-        <div class="variable-card">
-          <h3>3. Automated Payroll</h3>
-          <p>Self-running tax, superannuation, and salary disbursement.</p>
-        </div>
-        <div class="variable-card">
-          <h3>4. Strategic Roadmap</h3>
-          <p>A customized 4-year growth and scaling plan for your team.</p>
-        </div>
-        <div class="variable-card">
-          <h3>5. Digital Onboarding</h3>
-          <p>Paperless recruitment and seamless new-hire integration.</p>
-        </div>
-        <div class="variable-card">
-          <h3>6. Wheel of Wellbeing</h3>
-          <p>Proprietary health and mental wellness programs for staff.</p>
-        </div>
-        <div class="variable-card">
-          <h3>7. Performance KPIs</h3>
-          <p>Automated tracking of employee output and growth metrics.</p>
-        </div>
-        <div class="variable-card">
-          <h3>8. Risk Management</h3>
-          <p>Proactive mitigation of workers' comp and workplace safety.</p>
-        </div>
-        <div class="variable-card">
-          <h3>9. Learning Portal</h3>
-          <p>On-demand training and professional development systems.</p>
-        </div>
-        <div class="variable-card">
-          <h3>10. Exit Management</h3>
-          <p>Professional, compliant offboarding and knowledge transfer.</p>
-        </div>
-        <div class="variable-card">
-          <h3>11. Data Analytics</h3>
-          <p>Monthly board-ready reports on HR costs and efficiency.</p>
-        </div>
-        <div class="variable-card">
-          <h3>12. Benefits Admin</h3>
-          <p>Management of health, retirement, and insurance perks.</p>
-        </div>
-        <div class="variable-card">
-          <h3>13. Policy Suite</h3>
-          <p>Always-up-to-date digital handbooks and policy docs.</p>
-        </div>
-        <div class="variable-card">
-          <h3>14. Mediation</h3>
-          <p>Neutral, professional conflict resolution and dispute management.</p>
-        </div>
+
+        <p class="quicknote">*Range based on a minimum of 4 bespoke service modules. Final flat-fee quote provided upon consultation.</p>
+        <p class="message">*Your potential 4-year savings is significant.<br>To see exactly how RESSONATE eliminates costs across 14 key HR variables<br>and to view the Balance Sheet Impact,<br>unlock your free report below.</p>
+
+        <form id="audit-form">
+          <div class="details">
+            <div>
+              <label for="name">Name</label>
+              <input type="text" id="name" placeholder="Your full name" required>
+            </div>
+            <div>
+              <label for="email">Business Email</label>
+              <input type="email" id="email" placeholder="you@company.com" required>
+            </div>
+          </div>
+          <button onclick="SendtoAdmin()" type="submit">Unlock Full 4-Year Report</button>
+        </form>
+
+        <div id="reveal-section" class="variable-grid" style="display: none;">
+          <div class="report-intro">
+              <h2>The Ressonate Solutions Mix</h2>
+              <p>Your 4-Year Strategic Roadmap & Value Creation Audit</p>
+          </div>
+
+          <div class="grid-container">
+              <div class="variable-card"><span class="tag">Bespoke</span><h3>01. Talent Management</h3><p>Tech-enabled screening and rapid post-offer background/reference checks.</p></div>
+              <div class="variable-card"><span class="tag">Bespoke</span><h3>02. Skills Development</h3><p>Clear career trajectory mapping to enhance long-term employee value.</p></div>
+              <div class="variable-card"><span class="tag">Bespoke</span><h3>03. Capacity Utilization</h3><p>Optimizing workforce output based on a proprietary Competency Matrix.</p></div>
+              <div class="variable-card"><span class="tag">Bespoke</span><h3>04. Optimized HRIS</h3><p>Seamless integration of advanced HR Information System technology.</p></div>
+              <div class="variable-card"><span class="tag">Bespoke</span><h3>05. Employee Self-Service</h3><p>Deployment of a dedicated HR App to streamline staff autonomy.</p></div>
+              <div class="variable-card"><span class="tag">Bespoke</span><h3>06. Open Enrollment</h3><p>Streamlined and automated benefits enrollment for the entire team.</p></div>
+              <div class="variable-card"><span class="tag">Bespoke</span><h3>07. Automated Compliance</h3><p>Frictionless Automated I-9 verification and documentation management.</p></div>
+              <div class="variable-card"><span class="tag">Bespoke</span><h3>08. Benefits Clarity</h3><p>Thorough, simplified explanation of all benefits to maximize engagement.</p></div>
+              <div class="variable-card"><span class="tag">Bespoke</span><h3>09. Internal Comms</h3><p>Effective use of internal HR communications for total team alignment.</p></div>
+              <div class="variable-card"><span class="tag">Bespoke</span><h3>10. Team Building</h3><p>Strategic initiatives designed to foster culture and collaborative growth.</p></div>
+              <div class="variable-card"><span class="tag">Bespoke</span><h3>11. Workplace Safety</h3><p>Comprehensive safety protocols to protect staff and reduce liability.</p></div>
+              <div class="variable-card"><span class="tag">Bespoke</span><h3>12. Continuous Feedback</h3><p>Balancing high performance with consistent, real-time feedback loops.</p></div>
+              <div class="variable-card"><span class="tag">Bespoke</span><h3>13. Fulfillment Metrics</h3><p>Real-time tracking of employee engagement and workplace fulfillment.</p></div>
+              <div class="variable-card"><span class="tag">Bespoke</span><h3>14. Return on Time (ROTI)</h3><p>Composite effect of quality time spent and efficiently designed HR processes.</p></div>
+          </div>
+
+          <div class="report-footer">
+              <p>*This audit represents a potential 4-year roadmap. Final flat-fee pricing is determined by your specific ala carte service selections.</p>
+              <button onclick="window.print()" class="print-btn">Download PDF Report</button>
+          </div>
       </div>
     </div>
   </div>

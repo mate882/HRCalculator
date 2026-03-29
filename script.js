@@ -3,7 +3,7 @@ const annualSalaryInput = document.getElementById('annualsalary');
 const traditionalcostDisplay = document.getElementById('traditionalcost');
 const savings = document.getElementById('savings');
 const timeframe = 4;
-const cost = document.getElementById('ressonatecost');
+const cost = document.getElementById('bespokesolutionbase');
 
 const calculator = document.getElementById('calculator');
 const openBtn = document.getElementById('open-calc-btn');
@@ -40,12 +40,16 @@ function updateMath() {
   let salary = parseFloat(annualSalaryInput.value.replace(/[^0-9.]/g, '')) || 0;
 
   const totalTraditional = count * salary * timeframe;
-  const ressonatePrice = totalTraditional * 0.30;
-  const totalSaved = totalTraditional - ressonatePrice;
+
+  const minSaved = totalTraditional * 0.20;
+  const maxSaved = totalTraditional * 0.45;
+  
+  const baseSolutionCost = totalTraditional * 0.15; 
 
   traditionalcostDisplay.innerText = '$' + totalTraditional.toLocaleString();
-  cost.innerText = '$' + ressonatePrice.toLocaleString();
-  savings.innerText = '$' + totalSaved.toLocaleString();
+  cost.innerText = '$' + baseSolutionCost.toLocaleString() + ' +'; 
+
+  savings.innerText = '$' + minSaved.toLocaleString() + ' - $' + maxSaved.toLocaleString();
 }
 
 staffDropdown.addEventListener('change', updateMath);
@@ -81,11 +85,13 @@ function SendtoAdmin() {
 
   if (isFormValid) {
     const leadData = {
-      name: namevalue,
+      name: namevalue, 
       email: emailvalue,
-      staff: document.getElementById('numberdropdown').value,
-      traditional: document.getElementById('traditionalcost').innerText.replace(/[^0-9.]/g, ''),
-      savings: document.getElementById('savings').innerText.replace(/[^0-9.]/g, '')
+      company_size: staffDropdown.value,
+      traditional_spend_raw: traditionalcostDisplay.innerText.replace(/[^0-9.]/g, ''),
+      value_range_estimate: savings.innerText.replace(/\$/g, ''),
+      service_type: "Bespoke_4_Service_Min",
+      status: "Unlocked"
     };
 
     fetch('https://formspree.io/f/mdawdqrp', {
@@ -101,14 +107,12 @@ function SendtoAdmin() {
         document.getElementById('audit-form').style.display = 'none';
         const revealSection = document.getElementById('reveal-section');
         revealSection.style.display = 'grid';
-        revealSection.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => {
+          revealSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 100);
       } else {
         alert('Submission failed. Please try again.');
       }
     })
-    .catch(function (error) {
-      console.error('Error:', error);
-      alert('There was a connection error.');
-    });
   }
 }
