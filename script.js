@@ -94,10 +94,10 @@ function SendtoAdmin() {
       status: "Unlocked"
     };
 
-    fetch('https://hrcalculator.onrender.com/send-audit', { 
-      method: 'POST',
-      body: JSON.stringify(leadData),
-      headers: { 'Content-Type': 'application/json' }
+    fetch('/send-audit', { 
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(leadData)
     })
     .then(response => {
       if (response.ok) {
