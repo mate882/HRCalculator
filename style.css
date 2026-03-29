@@ -202,7 +202,7 @@ body {
 }
 
 .inputs select,
-.inputs input[type="text"] {
+.inputs input[type="number"] {
   font-family: var(--font-body);
   font-size: 1rem;
   font-weight: 500;
@@ -238,13 +238,13 @@ body {
 }
 
 .inputs select:focus,
-.inputs input[type="text"]:focus {
+.inputs input[type="number"]:focus {
   border-color: var(--action);
   background: rgba(26,111,255,0.08);
   box-shadow: 0 0 0 3px var(--action-glow);
 }
 
-.inputs input[type="text"]::placeholder { color: rgba(255,255,255,0.25); }
+.inputs input[type="number"]::placeholder { color: rgba(255,255,255,0.25); }
 
 .timeframe-value {
   font-size: 1rem;
