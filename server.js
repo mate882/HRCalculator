@@ -22,11 +22,14 @@ app.use(express.json());
 const transporter = nodemailer.createTransport({
   host: "smtp-relay.brevo.com",
   port: 587,
-  secure: false, // Use TLS
+  secure: false, // TLS
   auth: {
     user: process.env.BREVO_USER,
     pass: process.env.BREVO_PASS
-  }
+  },
+  connectionTimeout: 10000, // 10 seconds
+  greetingTimeout: 10000,
+  socketTimeout: 10000
 });
 
 app.post('/send-audit', (req, res) => {
@@ -83,6 +86,14 @@ app.post('/send-audit', (req, res) => {
     }
     res.status(200).send("Email sent: " + info.response);
   });
+
+  try {
+    transporter.sendMail(mailOptions);
+    res.status(200).send("Email sent successfully");
+  } catch (error) {
+    console.error("SMTP Error:", error);
+    res.status(500).json({ error: "Email failed", details: error.message });
+  }
 });
 
 const PORT = process.env.PORT || 3000;
