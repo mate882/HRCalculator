@@ -36,20 +36,27 @@ document.addEventListener('keydown', function (e) {
 });
 
 function updateMath() {
-  let count = parseFloat(staffDropdown.value) || 0;
-  let salary = parseFloat(annualSalaryInput.value.replace(/[^0-9.]/g, '')) || 0;
+  let totalStaff = parseFloat(staffDropdown.value) || 0;
+  let avgHRSalary = parseFloat(annualSalaryInput.value.toString().replace(/[^0-9.]/g, '')) || 0;
 
-  const totalTraditional = count * salary * timeframe;
+  // 1. REALISTIC TRADITIONAL HR HEADCOUNT
+  // Industry standard is roughly 1 HR professional per 50-75 employees.
+  // We use totalStaff / 60 as a realistic middle ground.
+  let virtualHRStaffCount = totalStaff / 60; 
+  if (virtualHRStaffCount < 0.5) virtualHRStaffCount = 0.5;
 
-  const minSaved = totalTraditional * 0.20;
-  const maxSaved = totalTraditional * 0.45;
+  const totalTraditional = (virtualHRStaffCount * (avgHRSalary * 1.2)) * timeframe;
+
+  // 3. RESSONATE FRACTIONAL PRICE ($38k per 100 employees per year)
+  const fractionalCost = (totalStaff / 100) * 38000 * timeframe;
   
-  const baseSolutionCost = totalTraditional * 0.15; 
+  const totalSaved = totalTraditional - fractionalCost;
 
-  traditionalcostDisplay.innerText = '$' + totalTraditional.toLocaleString();
-  cost.innerText = '$' + baseSolutionCost.toLocaleString() + ' +'; 
+  traditionalcostDisplay.innerText = '$' + Math.round(totalTraditional).toLocaleString();
+  
+  cost.innerText = 'Starting at $' + Math.round(fractionalCost).toLocaleString(); 
 
-  savings.innerText = '$' + minSaved.toLocaleString() + ' - $' + maxSaved.toLocaleString();
+  savings.innerText = '$' + (totalSaved > 0 ? Math.round(totalSaved).toLocaleString() : "Contact for custom ROI");
 }
 
 staffDropdown.addEventListener('change', updateMath);

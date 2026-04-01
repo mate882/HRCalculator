@@ -16,24 +16,27 @@
 
       <div class="calc-inner">
         <div class="calc-header">
-          <h1>HR Cost <span>Calculator</span></h1>
-          <p>4-Year Financial Impact Analysis</p>
+          <div class="calc-header">
+            <img src="images/RESSONATEinGOLD.png" alt="Ressonate Logo" style="max-width: 180px; margin-bottom: 15px; border-radius: 50%;"> 
+            <h1>Ressonate- Resources for HR <span>(HR Cost Calculator)</span></h1>
+            <p>4-Year Financial Impact Analysis</p>
+          </div>
         </div>
 
         <div class="inputs">
           <div class="staffcount">
-            <label>Staff Count</label>
+            <label>Total Company Headcount</label>
             <select name="number-dropdown" id="numberdropdown">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
+              <option value="25">25 Employees</option>
+              <option value="50">50 Employees</option>
+              <option value="75">75 Employees</option>
+              <option value="100" selected>100 Employees</option>
+              <option value="150">150 Employees</option>
+              <option value="200">200 Employees</option>
+              <option value="250">250 Employees</option>
+              <option value="300">300 Employees</option>
+              <option value="400">400 Employees</option>
+              <option value="500">500 Employees</option>
             </select>
           </div>
 
@@ -55,7 +58,7 @@
           </div>
 
           <div class="bespokesolutionbase">
-            <label>Bespoke Solution Base</label>
+            <label>Done for you HR at a fractional cost</label>
             <p id="bespokesolutionbase">$0</p>
           </div>
 
@@ -110,6 +113,9 @@
               <button onclick="window.print()" class="print-btn">Download PDF Report</button>
           </div>
       </div>
+      <p class="legal-disclaimer">
+        This calculator is owned by Ressonate...
+      </p>
     </div>
   </div>
 </body>
